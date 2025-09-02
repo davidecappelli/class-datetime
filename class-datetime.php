@@ -103,15 +103,6 @@ class DateTime{
         return $reverse === TRUE ? str_replace(',','T',$datetime->format('Y-m-d,H:i')) : $datetime->format('Y-m-d H:i:00');
     }
 
-	public static function getDatetimeStamp($atts) {
-		$atts           = array_change_key_case((array) $atts,CASE_LOWER);
-		$shortcode_atts = shortcode_atts([
-			'format'    => self::DATEFORMATS[0].' '.self::TIMEFORMATS[1], //DD/MM/YYYY hh:mm
-		],$atts);
-		$datetime   = self::getDateTime();
-		return $datetime ? $datetime->format($atts['format']) : NULL;
-	}
-
 	public static function getYearStamp() {
 		$datetime   = self::getDateTime();
 		return $datetime ? $datetime->format('Y') : NULL;
